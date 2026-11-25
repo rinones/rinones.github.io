@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website and interactive terminal directory explorer.">
+  <title>~</title>
+
+  <!-- Inline SVG favicon to prevent 404 requests for /favicon.ico -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Stylesheets separated by responsibility -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/tree.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- 1. Main directory explorer container -->
+  <main id="tree-container" aria-label="File explorer">
+    <div id="current-path">~</div>
+    <ul id="file-list" role="listbox"></ul>
+    <noscript>
+      <p id="noscript-warning">JavaScript is required to browse this directory.</p>
+    </noscript>
+  </main>
+
+  <!-- 2. Subtle keyboard controls guide at the bottom -->
+  <footer id="footer-guide" aria-hidden="true">
+    ↑/↓ navigate · enter open · backspace back · esc close
+  </footer>
+
+  <!-- 3. Overlay modal window hidden by default -->
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-box">
+      <div id="modal-header">
+        <span id="modal-title">file.txt</span>
+        <button id="modal-close" type="button" aria-label="Close window">[X]</button>
+      </div>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript entry point using native ES Modules -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

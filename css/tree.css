@@ -1,0 +1,35 @@
+/* Main container for the directory tree */
+#tree-container {
+min-width: 240px;
+max-width: 90vw;
+user-select: none;
+}
+
+/* Current working directory header (e.g., ~ or ~/projects) */
+#current-path {
+margin-bottom: 4px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+/* Unordered list holding directory entries */
+#file-list {
+list-style: none;
+}
+
+/* Individual file or folder row */
+.tree-item {
+margin-left: 24px;
+padding: 2px 6px;
+cursor: pointer;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+/* Selected item highlighted via classic terminal color inversion */
+.tree-item.active {
+background-color: var(--fg-color);
+color: var(--bg-color);
+}

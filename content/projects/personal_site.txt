@@ -1,0 +1,31 @@
+PROJECT: PERSONAL SITE (rinones.eus)
+
+====================================
+
+
+
+A minimalist, terminal-inspired personal website built as an interactive directory explorer, featuring I-assisted design.
+
+
+
+Architecture:
+
+- Pure HTML5, modular CSS, and native ES Modules
+
+- Decoupled layers: data, state, UI views, input controller, and services
+
+- On-demand plain text loading with in-memory caching
+
+- Keyboard-first navigation with full mouse and touch support
+
+
+
+Repository:
+
+https://github.com/rinones/rinones.github.io
+
+
+
+Live site:
+
+https://rinones.eus

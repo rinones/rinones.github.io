@@ -1,0 +1,86 @@
+/* Full-screen dark backdrop hidden by default */
+#modal-overlay {
+display: none;
+position: fixed;
+inset: 0;
+background-color: rgba(0, 0, 0, 0.85);
+justify-content: center;
+align-items: center;
+padding: 16px;
+z-index: 100;
+}
+
+/* Class toggled by JavaScript to reveal the modal */
+#modal-overlay.open {
+display: flex;
+}
+
+/* Main terminal window box */
+#modal-box {
+width: 100%;
+max-width: 560px;
+max-height: 80vh;
+max-height: 80dvh;
+display: flex;
+flex-direction: column;
+background-color: var(--bg-color);
+border: 1px solid var(--fg-color);
+}
+
+/* Top bar containing file name and close button */
+#modal-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 8px 12px;
+border-bottom: 1px solid var(--fg-color);
+}
+
+/* File title truncated cleanly if too long */
+#modal-title {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+margin-right: 12px;
+}
+
+/* Minimalist [X] close button */
+#modal-close {
+background: none;
+border: none;
+color: var(--fg-color);
+font-family: inherit;
+font-size: inherit;
+cursor: pointer;
+padding: 0 4px;
+}
+
+/* Invert colors on hover or keyboard focus */
+#modal-close:hover,
+#modal-close:focus-visible {
+background-color: var(--fg-color);
+color: var(--bg-color);
+outline: none;
+}
+
+/* Scrollable body for file contents */
+#modal-content {
+padding: 16px;
+overflow-y: auto;
+white-space: pre-wrap;
+word-break: break-word;
+}
+
+/* Links rendered inside file contents */
+#modal-content a {
+color: var(--fg-color);
+text-decoration: underline;
+}
+
+#modal-content a:hover,
+#modal-content a:focus-visible {
+background-color: var(--fg-color);
+color: var(--bg-color);
+text-decoration: none;
+outline: none;
+}

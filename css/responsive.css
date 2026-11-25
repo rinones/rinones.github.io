@@ -1,0 +1,39 @@
+/* Layout adjustments for narrow screens (mobile phones) */
+@media (max-width: 600px) {
+#tree-container {
+min-width: 0;
+width: 90vw;
+}
+
+.tree-item {
+margin-left: 16px;
+}
+
+#modal-overlay {
+padding: 12px;
+}
+
+#modal-box {
+max-height: 85vh;
+max-height: 85dvh;
+}
+
+#modal-content {
+padding: 12px;
+}
+}
+
+/* Touch-specific ergonomics for devices with imprecise pointers (fingers) */
+@media (pointer: coarse) {
+.tree-item {
+padding: 8px 10px;
+}
+
+#modal-close {
+padding: 4px 8px;
+}
+
+#footer-guide {
+display: none;
+}
+}
