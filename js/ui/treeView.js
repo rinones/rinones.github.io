@@ -45,7 +45,7 @@ export function initTreeView({ onHover, onOpen }) {
   listEl.addEventListener("click", (event) => {
     const index = getRowIndexFromEvent(event);
     if (index !== null) {
-      onOpen(index);
+      onOpen(index, event);
     }
   });
 }
@@ -69,10 +69,21 @@ export function renderTree(path, items, selectedIndex) {
     const li = document.createElement("li");
 
     li.className = isActive ? "tree-item active" : "tree-item";
-    li.textContent = item.name;
     li.dataset.index = String(index);
     li.setAttribute("role", "option");
     li.setAttribute("aria-selected", String(isActive));
+
+    if (item.type === "link") {
+      const anchor = document.createElement("a");
+      anchor.href = item.href;
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+      anchor.tabIndex = -1;
+      anchor.textContent = item.name;
+      li.appendChild(anchor);
+    } else {
+      li.textContent = item.name;
+    }
 
     fragment.appendChild(li);
   });

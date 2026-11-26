@@ -105,6 +105,20 @@ function handleDownload(downloadNode) {
 }
 
 /**
+ * Opens an external link in a new tab, falling back to the current tab if blocked.
+ */
+function handleOpenLink(linkNode) {
+  trackEvent("open_link", { name: linkNode.name });
+
+  const openedWindow = window.open(linkNode.href, "_blank");
+  if (openedWindow) {
+    openedWindow.opener = null;
+  } else {
+    window.location.assign(linkNode.href);
+  }
+}
+
+/**
  * Navigates one level up to the parent directory and re-renders the tree.
  */
 function handleGoBack() {
@@ -142,6 +156,10 @@ function handleActivateItem(item) {
       handleDownload(item);
       break;
 
+    case "link":
+      handleOpenLink(item);
+      break;
+
     default:
       break;
   }
@@ -173,11 +191,19 @@ function handleHover(index) {
 /**
  * Handles clicking or tapping directly on a directory entry.
  */
-function handlePointerOpen(index) {
+function handlePointerOpen(index, event) {
   trackInputMethod("pointer");
   setSelectedIndex(index);
   updateSelection(getSelectedIndex());
-  handleActivateItem(getSelectedItem());
+
+  const item = getSelectedItem();
+  if (item?.type === "link") {
+    event.preventDefault();
+    handleOpenLink(item);
+    return;
+  }
+
+  handleActivateItem(item);
 }
 
 /**

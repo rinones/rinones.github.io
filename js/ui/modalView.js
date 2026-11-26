@@ -85,7 +85,7 @@ export function openModal(title, content) {
   modalContent.scrollTop = 0;
 
   modalOverlay.classList.add("open");
-  modalCloseBtn?.focus();
+  modalContent.focus();
 }
 
 /**

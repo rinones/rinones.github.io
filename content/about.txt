@@ -1,9 +1,3 @@
-ABOUT
-
-=====
-
-
-
 Hi, I'm Gonzalo.
 
 Engineer (B.Sc. Mechanical, M.Sc. Energy Systems) currently studying AI & Computer Science at UNED as I transition into Software, Cybersecurity, and Applied AI.
@@ -11,7 +5,6 @@ Engineer (B.Sc. Mechanical, M.Sc. Energy Systems) currently studying AI & Comput
 On this page, you'll find information and applications I've designed and built across various fields.
 
 Hope you enjoy looking around!
-
 
 
 More about my work:
