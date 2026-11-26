@@ -18,9 +18,9 @@ display: flex;
 /* Main terminal window box */
 #modal-box {
 width: 100%;
-max-width: 560px;
-max-height: 80vh;
-max-height: 80dvh;
+max-width: 64ch;
+max-height: 60vh;
+max-height: 60dvh;
 display: flex;
 flex-direction: column;
 background-color: var(--bg-color);

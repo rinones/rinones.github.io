@@ -1,0 +1,3 @@
+
+-MIBD (Modelado de Información y Bases de Datos) equivalente a BBDD (Bases de Datos)
+

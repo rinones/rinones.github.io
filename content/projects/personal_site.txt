@@ -1,12 +1,7 @@
 PROJECT: PERSONAL SITE (rinones.eus)
-
 ====================================
 
-
-
 A minimalist, terminal-inspired personal website built as an interactive directory explorer, featuring I-assisted design.
-
-
 
 Architecture:
 
@@ -19,11 +14,9 @@ Architecture:
 - Keyboard-first navigation with full mouse and touch support
 
 
-
 Repository:
 
 https://github.com/rinones/rinones.github.io
-
 
 
 Live site:

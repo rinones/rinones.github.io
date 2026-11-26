@@ -1,11 +1,5 @@
 /**
- * In-memory cache storing already fetched file contents.
- * Keys are file paths (e.g., "content/about.txt"), values are plain text strings.
- */
-const fileCache = new Map();
-
-/**
- * Fetches a text file from the given relative path and caches its content.
+ * Fetches a text file from the given relative path, revalidating the browser cache.
  * Throws a descriptive Error if the path is invalid, the network fails,
  * or the server returns a non-OK HTTP status (e.g., 404).
  */
@@ -14,14 +8,10 @@ export async function loadFileContent(src) {
     throw new Error("Invalid file path.");
   }
 
-  if (fileCache.has(src)) {
-    return fileCache.get(src);
-  }
-
   let response;
 
   try {
-    response = await fetch(src);
+    response = await fetch(src, { cache: "no-cache" });
   } catch (networkError) {
     throw new Error(`Network error while loading "${src}".`);
   }
@@ -30,8 +20,5 @@ export async function loadFileContent(src) {
     throw new Error(`HTTP ${response.status} error while loading "${src}".`);
   }
 
-  const text = await response.text();
-  fileCache.set(src, text);
-
-  return text;
+  return response.text();
 }
